@@ -18,6 +18,11 @@ pipeline {
         echo "This is the test stage 2"
         }
         }
+        stage ( 'testing on safari') {
+        steps {
+        echo "This is the test stage 3"
+        }
+        }
       }
     }
   
