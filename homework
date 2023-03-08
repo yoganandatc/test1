@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-            stage ('BUILD'){
+            stage ('BUILD') {
                 parallel {
                     stage ('Build-1'){
                 step {
@@ -32,11 +32,13 @@ pipeline {
                             echo "this is build2"
                         }
                     }
-                    }stage ('build-3'){
+                    stage ('build-3'){
                         steps{
                             echo "this is buiid3"
                         }
                 }
             }
         }
+    }
     
+
