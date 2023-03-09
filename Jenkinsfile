@@ -1,40 +1,45 @@
 pipeline {
-  agent any 
-  stages {
-    stage ( 'BUILD') {
-      steps {
-        echo "This is the build stage"
-      }
+    agent any
+    stages {
+            stage ('BUILD') {
+                parallel {
+                    stage ('Build-1'){
+                step {
+                    echo "this is build 1"
+                }
+            }
+            Stage ('TEST'){
+                parallel {
+                    stage ('test-1'){
+                        steps{
+                            echo "this is test1"
+                        }
+                    }
+                    stage ('test-2'){
+                        steps{
+                            echo "this is test2"
+                        }
+                    }
+                    }stage ('test-3'){
+                        steps{
+                            echo "this is test3"
+                        }
+                    }
+                }
+            }
+                    stage ('build-2'){
+                        steps{
+                            echo "this is build2"
+                        }
+                    }
+                    stage ('build-3'){
+                        steps{
+                            echo "this is buiid3"
+                        }
+                }
+            }
+        }
     }
-    stage ( 'TEST') {
-      parallel {
-        stage ( 'testing on chrome') {
-      steps {
-        echo "This is the test stage 1"
-      }
-        }
-        stage ( 'testing on opera') {
-        steps {
-        echo "This is the test stage 2"
-        }
-        }
-        stage ( 'testing on safari') {
-        steps {
-        echo "This is the test stage 3"
-        }
-        }
-      }
-    }
-  
-    stage ( 'DEPLOY') {
-      steps {
-        echo "This is the deploy stage"
-      }
-    }
-  }
-}
-        
-  
-  
-  
+    
+
   
